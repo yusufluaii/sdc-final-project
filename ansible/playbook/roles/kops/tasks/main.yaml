@@ -1,0 +1,13 @@
+- name: KOPS Create Cluster
+  ansible.builtin.command: kOps create cluster --name cluster-dev.adam131.my.id --zones ap-southeast-1a --master-size t2.medium --node-size t2.medium --state s3://adam-kops-state
+  register: output
+
+- name: kOps Update Cluster
+  ansible.builtin.command: kops update cluster --name cluster-dev.adam131.my.id --yes -- admin --state s3://adam-kops-state
+  register: output
+
+
+- name: kOps Validate Cluster
+  ansible.builtin.command: kops validate cluster --wait 10m --state s3://adam-kops-state
+  register: output
+

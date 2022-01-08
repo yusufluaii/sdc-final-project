@@ -1,0 +1,22 @@
+- name: add jenkins key
+  apt_key:
+    state: present
+    url: "https://pkg.jenkins.io/debian-stable/"
+- name: "Set EPEL yum repository"
+  apt_repository:
+      filename: "jenkins"
+      repo: "https://pkg.jenkins.io/debian-stable/jenkins.io.key"
+      state: present
+- name: "Install open jdk 11"
+  apt:
+      name: openjdk-11-jre-headless
+      state: present
+- name: install jenkins
+  apt:
+      name: jenkins
+      state: present
+- name: "Starting jenkins"
+  service:
+      name: "jenkins"
+      state: started
+      enabled: yes

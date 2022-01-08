@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: todo-app-svc-backend
+  namespace: staging
+spec:
+  selector:
+    app: todo-app
+    tier: backend
+  type: ClusterIP
+  sessionAffinity: None
+  sessionAffinityConfig:
+    clientIP:
+      timeoutSeconds: 10800
+  ports:
+  - name: todo-app
+    protocol: TCP
+    port: 4000
+    targetPort: 4000
