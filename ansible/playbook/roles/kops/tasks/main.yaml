@@ -10,4 +10,3 @@
 - name: kOps Validate Cluster
   ansible.builtin.command: kops validate cluster --wait 10m --state s3://adam-kops-state
   register: output
-

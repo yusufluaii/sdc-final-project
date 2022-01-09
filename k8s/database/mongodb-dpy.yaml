@@ -26,13 +26,8 @@ spec:
       containers:
       - name:  mongodb
         image:  mongo:3.6.19-xenial
-        # envFrom:
-        #   - secretRef:
-        #       name: mysecret
         ports:
         - containerPort: 27017
-          protocol: TCP
-          name:  mongodb
         # command:
         #   - [""]
         # args:

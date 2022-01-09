@@ -35,7 +35,6 @@ spec:
         #     cpu: 1050Mi
         #     memory: 1050Mi
         ports:
-        - containerPort: 4000
+        - containerPort: 6969
           protocol: TCP
-          name:  todo-app
       restartPolicy: Always

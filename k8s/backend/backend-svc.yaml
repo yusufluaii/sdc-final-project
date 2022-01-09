@@ -8,12 +8,7 @@ spec:
     app: todo-app
     tier: backend
   type: ClusterIP
-  sessionAffinity: None
-  sessionAffinityConfig:
-    clientIP:
-      timeoutSeconds: 10800
   ports:
-  - name: todo-app
-    protocol: TCP
-    port: 4000
-    targetPort: 4000
+    - protocol: TCP
+      port: 6969
+      targetPort: 6969

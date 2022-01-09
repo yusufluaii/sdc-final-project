@@ -26,6 +26,6 @@ resource "aws_instance" "jenkins_instance" {
 
    provisioner "local-exec" {
       working_dir = "/home/yusuf/project/repo/sdc-project-final/ansible/playbook"
-      command = "ansible-playbook -u ubuntu -i ${self.public_ip} --private-key ~/.ssh/yusufluai.pem -e  jenkins.yaml"
+      command = "ansible-playbook -i ${self.public_ip}, -u ubuntu --private-key ~/.ssh/yusufluai.pem jenkins.yaml"
     }
 }

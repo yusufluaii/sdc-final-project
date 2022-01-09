@@ -21,7 +21,7 @@ export default class EditTodo extends Component {
     }
 
     componentDidMount() {
-        axios.get(`http://todo-app-svc-backend:4000/todos/`+this.props.match.params.id)
+        axios.get(`http://todo-app-svc-backend:6969/todos/`+this.props.match.params.id)
             .then(response => {
                 this.setState({
                     todo_description: response.data.todo_description,
