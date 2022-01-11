@@ -2,6 +2,7 @@
 
 FROM node:10.16-alpine
 
+
 # Create App Directory
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
@@ -15,6 +16,6 @@ RUN npm install --silent
 COPY . .
 
 # Exports
-EXPOSE 6969
+EXPOSE 4000
 
 CMD ["npm","start"]

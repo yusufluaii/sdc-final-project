@@ -1,0 +1,5 @@
+# - name: jenkins test
+#   # ansible.builtin.jenkins_job:
+#   # ansible.builtin.jenkins_plugin:
+#   # ansible.builtin.jenkins_job_info:
+#   ansible.builtin.slack:

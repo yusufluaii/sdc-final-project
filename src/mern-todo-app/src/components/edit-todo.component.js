@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+
 export default class EditTodo extends Component {
 
     constructor(props) {
@@ -21,7 +22,7 @@ export default class EditTodo extends Component {
     }
 
     componentDidMount() {
-        axios.get(`http://todo-app-svc-backend:6969/todos/`+this.props.match.params.id)
+        axios.get(process.env.BACKEND_URL + `/todos/` +this.props.match.params.id)
             .then(response => {
                 this.setState({
                     todo_description: response.data.todo_description,
@@ -68,7 +69,7 @@ export default class EditTodo extends Component {
             todo_completed: this.state.todo_completed
         };
         console.log(obj);
-        axios.post(`http://todo-app-svc-backend:4000/todos/update/`+this.props.match.params.id, obj)
+        axios.post(process.env.BACKEND_URL +`/todos/update/`+this.props.match.params.id, obj)
             .then(res => console.log(res.data));
         
         this.props.history.push('/');

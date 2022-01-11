@@ -3,6 +3,7 @@ import axios from 'axios';
 export default class CreateTodo extends Component {
 
     constructor(props) {
+
         super(props);
 
         this.onChangeTodoDescription = this.onChangeTodoDescription.bind(this);
@@ -51,7 +52,7 @@ export default class CreateTodo extends Component {
             todo_completed: this.state.todo_completed
         };
 
-        axios.post(`http://todo-app-svc-backend:6969/todos/add`, newTodo)
+        axios.post(process.env.BACKEND_URL + `/todos/add`, newTodo)
             .then(res => console.log(res.data));
 
         this.setState({

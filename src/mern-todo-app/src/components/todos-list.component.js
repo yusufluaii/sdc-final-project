@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
+
+
+
 const Todo = props => (
     <tr>
         <td>{props.todo.todo_description}</td>
@@ -21,7 +24,7 @@ export default class TodosList extends Component {
     }
 
     componentDidMount() {
-        axios.get(`http://todo-app-svc-backend:6969/todos/`)
+        axios.get( process.env.BACKEND_URL + `/todos/`)
             .then(response => {
                 this.setState({ todos: response.data });
             })

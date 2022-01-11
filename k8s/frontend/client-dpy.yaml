@@ -25,9 +25,11 @@ spec:
     spec:
       containers:
       - name:  todo-app
-        image:  yusufluai/mern-todo-app_client:10
+        image:  yusufluai/mern-todo-app_client:latest
         imagePullPolicy: Always
-          
+        env:
+          - name: BACKEND_URL
+            value: "todo-app-backend-svc"
         # resources:
         #   requests:
         #     cpu: 250Mi
