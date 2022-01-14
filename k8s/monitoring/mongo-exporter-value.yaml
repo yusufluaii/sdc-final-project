@@ -1,0 +1,7 @@
+mongodb:
+  uri: "mongodb://mongo-service.todo-app:27017"
+
+serviceMonitor:
+  additionalLabels: 
+    release: prometheus
+

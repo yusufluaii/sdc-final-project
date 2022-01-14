@@ -1,5 +1,13 @@
-# - name: jenkins test
-#   # ansible.builtin.jenkins_job:
-#   # ansible.builtin.jenkins_plugin:
-#   # ansible.builtin.jenkins_job_info:
-#   ansible.builtin.slack:
+- name: jenkins test
+  ansible.builtin.jenkins_job:
+    name: todo-app
+    config: 
+    enabled: present
+    url:
+    password:
+    state:
+    token:
+    user:
+
+- name: install jenkins plugin
+  ansible.builtin.jenkins_plugin:

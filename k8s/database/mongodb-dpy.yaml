@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name:  todo-app-database
-  namespace: staging
   labels:
     app: todo-app
     tier: database
@@ -28,13 +27,11 @@ spec:
         image:  mongo:3.6.19-xenial
         ports:
         - containerPort: 27017
-        # command:
-        #   - [""]
-        # args:
-        #   - [""]
-      # volumes:
-      #   - name: my-claim
-      #     persistentVolumeClaim:
-      #       claimName: testing
-    
+        volumeMounts:
+          - name: mongo-data
+            mountPath: /data
       restartPolicy: Always
+      volumes:
+        - name: mongo-data
+          persistentVolumeClaim:
+              claimName: mongo-data

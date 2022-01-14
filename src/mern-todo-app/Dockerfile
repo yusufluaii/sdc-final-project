@@ -12,6 +12,8 @@ COPY package*.json ./
 
 RUN npm install --silent
 
+RUN apk add curl
+
 # copy local files to app folder
 COPY . .
 

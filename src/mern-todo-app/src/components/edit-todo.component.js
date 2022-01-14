@@ -22,7 +22,7 @@ export default class EditTodo extends Component {
     }
 
     componentDidMount() {
-        axios.get(process.env.BACKEND_URL + `/todos/` +this.props.match.params.id)
+        axios.get(`http://todo.yusufluai.my.id:4000/todos` +this.props.match.params.id)
             .then(response => {
                 this.setState({
                     todo_description: response.data.todo_description,
@@ -69,7 +69,7 @@ export default class EditTodo extends Component {
             todo_completed: this.state.todo_completed
         };
         console.log(obj);
-        axios.post(process.env.BACKEND_URL +`/todos/update/`+this.props.match.params.id, obj)
+        axios.post(`http://todo.yusufluai.my.id:4000/todos/update/`+this.props.match.params.id, obj)
             .then(res => console.log(res.data));
         
         this.props.history.push('/');

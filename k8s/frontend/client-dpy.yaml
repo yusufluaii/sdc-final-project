@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name:  todo-app-frontend
-  namespace: staging
   labels:
     app: todo-app
     tier: frontend
@@ -25,11 +24,8 @@ spec:
     spec:
       containers:
       - name:  todo-app
-        image:  yusufluai/mern-todo-app_client:latest
+        image:  yusufluai/mern-todo-app_client:aws
         imagePullPolicy: Always
-        env:
-          - name: BACKEND_URL
-            value: "todo-app-backend-svc"
         # resources:
         #   requests:
         #     cpu: 250Mi

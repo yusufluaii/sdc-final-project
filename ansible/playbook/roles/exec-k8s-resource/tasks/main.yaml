@@ -1,0 +1,28 @@
+- name: create all namespace
+  ansible.builtin.command:
+    chdir: "k8s/ns"
+    cmd: "kubectl apply -f ns"
+
+- name: install monitoring tool 
+  ansible.builtin.command:
+    cmd: "helm install prometheus prometheus-community/kube-prometheus-stack -n monitoring"
+
+- name: install logging tool
+  ansible.builtin.command:
+    cmd: "kubectl apply -f logging -n kube-logging"
+
+
+- name: apply DB resources to the cluster
+  ansible.builtin.command::
+    cmd: "kubectl apply -f database -n todo-app"
+
+
+- name: apply BE resources to the cluster
+  ansible.builtin.command::
+    cmd: "kubectl apply -f backend -n todo-app"
+
+
+- name: apply FE resources to the cluster
+  ansible.builtin.command::
+    cmd: "kubectl apply -f frontend -n todo-app"
+

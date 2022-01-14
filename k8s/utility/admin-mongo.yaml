@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name:  admin-mongo
-  namespace: staging
   labels:
     app: admin-mongo
 spec:
@@ -38,7 +37,7 @@ metadata:
 spec:
   selector:
     app: admin-mongo
-  type: ClusterIP
+  type: NodePort
   ports:
   - port: 1234
     targetPort: 1234

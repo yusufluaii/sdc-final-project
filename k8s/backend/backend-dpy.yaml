@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: todo-app-backend
-  namespace: staging
   labels:
     app: todo-app
     tier: backend
@@ -36,7 +35,7 @@ spec:
         #     memory: 1050Mi
         env:
           - name: MONGO_URL
-            value: "mongodb://mongo.staging:27017"
+            value: "mongodb://mongo-service:27017/todos"
         ports:
         - containerPort: 4000
           protocol: TCP

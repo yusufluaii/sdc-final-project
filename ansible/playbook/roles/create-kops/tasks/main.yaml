@@ -1,0 +1,23 @@
+# - name: create cluster
+#   ansible.builtin.command:
+#     cmd: "kops create cluster"
+#     argv: [ 
+#             "--name cluster-kops.yusufluai.my.id",
+#              "--zones ap-southeast-1a", 
+#              "--master-size t3.medium",
+#              "--node-size t3.medium",
+#              "--dns-zone=yusufluai.my.id",
+#              "--state s3://luai-kops-state"
+#             ]
+    
+ 
+# - name : update cluster
+#   ansible.builtin.command:
+#     cmd: "kops update cluster \
+#           --name cluster-kops.yusufluai.my.id \
+#           --yes \
+#           --state s3://luai-kops-state"
+
+# - name: validate cluster
+#   ansible.builtin.command:
+#     cmd: "kops validate cluster --wait 10m --state s3://luai-kops-state"

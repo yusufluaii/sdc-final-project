@@ -28,4 +28,8 @@ resource "aws_instance" "jenkins_instance" {
       working_dir = "/home/yusuf/project/repo/DevOps/sdc-project-final/ansible/playbook"
       command = "ansible-playbook -i ${self.public_ip}, -u ubuntu --private-key ~/.ssh/yusufluai.pem jenkins.yaml"
     }
+
+    tags = {
+      "Name" = "jenkins"
+    }
 }
