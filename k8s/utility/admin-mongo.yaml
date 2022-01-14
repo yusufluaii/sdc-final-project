@@ -4,6 +4,7 @@ metadata:
   name:  admin-mongo
   labels:
     app: admin-mongo
+  namespace: monitoring
 spec:
   selector:
     matchLabels:

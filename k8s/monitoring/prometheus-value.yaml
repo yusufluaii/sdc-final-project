@@ -1303,7 +1303,7 @@ pushgateway:
 
     ## pushgateway data Persistent Volume size
     ##
-    size: 2Gi
+    size: 20Gi
 
     ## pushgateway data Persistent Volume Storage Class
     ## If defined, storageClassName: <storageClass>

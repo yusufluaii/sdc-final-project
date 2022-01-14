@@ -29,7 +29,7 @@ spec:
         - containerPort: 27017
         volumeMounts:
           - name: mongo-data
-            mountPath: /data
+            mountPath: /data/db
       restartPolicy: Always
       volumes:
         - name: mongo-data

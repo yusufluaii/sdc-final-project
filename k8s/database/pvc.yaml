@@ -6,8 +6,7 @@ spec:
   resources:
     requests:
       storage: 20Gi
-  volumeMode: Filesystem
   accessModes:
     - ReadWriteOnce
-  storageClassName: slow
+  storageClassName: standard
 

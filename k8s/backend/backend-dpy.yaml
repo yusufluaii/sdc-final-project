@@ -35,7 +35,7 @@ spec:
         #     memory: 1050Mi
         env:
           - name: MONGO_URL
-            value: "mongodb://mongo-service:27017/todos"
+            value: "mongodb://mongo-service:27017"
         ports:
         - containerPort: 4000
           protocol: TCP

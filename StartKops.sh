@@ -78,6 +78,6 @@ if [[ $ask_to_create_cluster == "y" ]];
     $zones "ap-southeast-1a","ap-southeast-1b","ap-southeast-1c" \
     $master_size "t3.medium" \
     $node_size "t3.medium" \
-    $node_count 1
+    $node_count 3
 fi
 

@@ -10,7 +10,7 @@ spec:
     matchLabels:
       app: todo-app
       tier: frontend
-  replicas: 1
+  replicas: 3
   strategy:
     rollingUpdate:
       maxSurge: 25%
@@ -26,13 +26,13 @@ spec:
       - name:  todo-app
         image:  yusufluai/mern-todo-app_client:aws
         imagePullPolicy: Always
-        # resources:
-        #   requests:
-        #     cpu: 250Mi
-        #     memory: 250Mi
-        #   limits:
-        #     cpu: 1050Mi
-        #     memory: 1050Mi
+        resources:
+          requests:
+            cpu: 150Mi
+            memory: 250Mi
+          limits:
+            cpu: 1050Mi
+            memory: 1050Mi
         ports:
         - containerPort: 3000
           protocol: TCP
