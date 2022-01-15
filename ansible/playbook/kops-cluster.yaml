@@ -1,5 +1,0 @@
-- name: create kops cluster
-  hosts: localhost
-  connection: local
-  roles:
-  - create-kops
