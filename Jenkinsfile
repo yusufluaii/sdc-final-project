@@ -1,22 +1,15 @@
 pipeline {
     agent any 
-
+    triggers {
+        pollSCM '* * * * *'
+    }
     stages {
-        
-        stage('Checkout scm') {
-            steps{
-                git branch: 'master', url: 'https://github.com/yusufluaii/jenkins-study.git'
-                
-            }
-            post{
-                success{
-                    echo "Checkout source code success"
-                }
-                failure{
-                    echo "invalid url or credentials"
-                }
+        stage('Checkout SCM') {
+            steps {
+                checkout scm
             }
         }
+            
 
         stage('Build Image & Push'){
             steps{
