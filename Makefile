@@ -1,8 +1,8 @@
-build_infras:
+build_jenkins:
 	@terraform -chdir=terraform/vpc apply -auto-approve
 	@terraform -chdir=terraform/sg apply -auto-approve
 	@terraform -chdir=terraform/jenkins/jenkins-instance apply -auto-approve
-	@./StartKops.sh
+	
 
 destroy_infras:
 	@terraform -chdir=terraform/jenkins/jenkins-instance destroy -auto-approve

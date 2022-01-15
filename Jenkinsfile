@@ -2,7 +2,6 @@ pipeline {
     agent any 
 
     stages {
-        
         stage('Checkout scm') {
             steps{
                 git branch: 'master', url: 'https://github.com/yusufluaii/jenkins-study.git'
@@ -17,7 +16,6 @@ pipeline {
                 }
             }
         }
-
         stage('Build Image & Push'){
             steps{
                 sh('docker build -t yusufluai/mern-todo-app_client:$BUILD_NUMBER .')
@@ -28,8 +26,7 @@ pipeline {
                 
             }
         }
-
-        stage('Deploy to staging environtment'){
+        stage('Deploy to Production environtment'){
             steps{
                 echo("Hello Staging")
             }

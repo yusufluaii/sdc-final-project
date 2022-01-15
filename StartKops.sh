@@ -15,7 +15,6 @@ function bucket_config_input(){
 }
 
 
-
 bucket_config_input
 
 
