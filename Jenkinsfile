@@ -10,12 +10,18 @@ pipeline {
             }
         }
 
-        stage("Unit Test"){
+        stage('Unit Testing') {
+            agent {
+                docker { image 'sonarsource/sonar-scanner-cli' }
+            }
             steps {
-                sh("")
+                script {
+                    sh "sonar-scanner -Dsonar.host.url=http://13.250.101.58/ -Dsonar.login=7a29496fa90a9a62f69e7dd765fa9dc06156d51d
+                    -Dsonar.projectKey=todo-app"
+                }
+                 
             }
         }
-
         stage('Build Image & Push'){
             steps{
                 sh('docker build -t yusufluai/todo-app_client:$BUILD_NUMBER .')
