@@ -26,13 +26,13 @@ spec:
       - name:  todo-app
         image:  yusufluai/mern-todo-app_server:latest
         imagePullPolicy: Always
-        # resources:
-        #   requests:
-        #     cpu: 250Mi
-        #     memory: 250Mi
-        #   limits:
-        #     cpu: 1050Mi
-        #     memory: 1050Mi
+        resources:
+          requests:
+            cpu: 150Mi
+            memory: 150Mi
+          limits:
+            cpu: 1050Mi
+            memory: 1050Mi
         env:
           - name: MONGO_URL
             value: "mongodb://mongo-service:27017"

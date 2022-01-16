@@ -50,7 +50,6 @@ function create_cluster(){
     --master-size ${3} \
     --node-size ${4} \
     --node-count ${5} \
-    --dns-zone=yusufluai.my.id
 
     # deploy cluster 
     kops update cluster \
