@@ -24,12 +24,12 @@ spec:
     spec:
       containers:
       - name:  todo-app
-        image:  yusufluai/mern-todo-app_server:latest
+        image:  yusufluai/todo-app_server:prod-3
         imagePullPolicy: Always
         resources:
           requests:
-            cpu: 150Mi
-            memory: 150Mi
+            cpu: 100Mi
+            memory: 100Mi
           limits:
             cpu: 1050Mi
             memory: 1050Mi

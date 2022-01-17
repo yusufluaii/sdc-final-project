@@ -24,15 +24,15 @@ spec:
     spec:
       containers:
       - name:  todo-app
-        image:  yusufluai/mern-todo-app_client:aws
+        image:  yusufluai/todo-app_client:prod-3
         imagePullPolicy: Always
         resources:
           requests:
-            cpu: 150Mi
-            memory: 250Mi
+            cpu: 200Mi
+            memory: 200Mi
           limits:
-            cpu: 1050Mi
-            memory: 1050Mi
+            cpu: 1000Mi
+            memory: 1000Mi
         ports:
         - containerPort: 3000
           protocol: TCP

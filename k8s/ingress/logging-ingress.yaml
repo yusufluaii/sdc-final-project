@@ -1,22 +1,22 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: monitoring-ingress
-  namespace: monitoring
+  name: logging-ingress
+  namespace: kube-logging
   annotations:
     kubernetes.io/ingress.class: nginx
 spec:
   rules:
-    - host: monitoring.yusufluai.my.id
+    - host: logging.yusufluai.my.id
       http:
         paths:
           - path: /
             pathType: Prefix
             backend:
               service:
-                name: prometheus-grafana
+                name: kibana
                 port:
-                  number: 3000
+                  number: 5601
               
 
 
