@@ -1,16 +1,17 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name:  todo-app-frontend
+  name: todo-app-backend
+  namespace: staging
   labels:
     app: todo-app
-    tier: frontend
+    tier: backend
 spec:
   selector:
     matchLabels:
       app: todo-app
-      tier: frontend
-  replicas: 3
+      tier: backend
+  replicas: 1
   strategy:
     rollingUpdate:
       maxSurge: 25%
@@ -19,21 +20,24 @@ spec:
   template:
     metadata:
       labels:
-        app:  todo-app
-        tier: frontend
+        app: todo-app
+        tier: backend
     spec:
       containers:
       - name:  todo-app
-        image:  yusufluai/todo-app_client:prod-3
+        image:  yusufluai/todo-app_server:prod-3
         imagePullPolicy: Always
         resources:
           requests:
-            cpu: 200Mi
-            memory: 200Mi
+            cpu: 250m
+            memory: 250Mi
           limits:
-            cpu: 1000Mi
-            memory: 1000Mi
+            cpu: 500m
+            memory: 500Mi
+        env:
+          - name: MONGO_URL
+            value: "mongodb://mongo-service:27017"
         ports:
-        - containerPort: 3000
+        - containerPort: 4000
           protocol: TCP
       restartPolicy: Always

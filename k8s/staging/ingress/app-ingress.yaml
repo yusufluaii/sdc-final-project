@@ -2,11 +2,12 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: todo-app-ingress
+  namespace: staging
   annotations:
     kubernetes.io/ingress.class: nginx
 spec:
   rules:
-    - host: todo.yusufluai.my.id
+    - host: todo-staging.yusufluai.my.id
       http:
         paths:
           - path: /
