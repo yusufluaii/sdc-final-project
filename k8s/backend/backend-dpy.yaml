@@ -24,7 +24,7 @@ spec:
     spec:
       containers:
       - name:  todo-app
-        image:  yusufluai/todo-app_server:prod-3
+        image:  yusufluai/todo-app_server
         imagePullPolicy: Always
         resources:
           requests:
