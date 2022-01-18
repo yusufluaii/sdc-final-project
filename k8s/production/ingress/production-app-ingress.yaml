@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: todo-app-ingress
+  namespace: production
+  annotations:
+    kubernetes.io/ingress.class: nginx
+spec:
+  rules:
+    - host: todo.yusufluai.my.id
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: todo-app-svc-frontend
+                port:
+                  number: 3000
+          - path: /todos
+            pathType: Prefix
+            backend:
+              service:
+                name: todo-app-backend-svc
+                port:
+                  number: 4000

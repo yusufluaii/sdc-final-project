@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name:  todo-app-database
+  namespace: production
+  labels:
+    app: todo-app
+    tier: database
+spec:
+  selector:
+    matchLabels:
+      app: todo-app
+      tier: database
+  replicas: 1
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app:  todo-app
+        tier: database
+    spec:
+      containers:
+      - name:  mongodb
+        image:  mongo:3.6.19-xenial
+        ports:
+        - containerPort: 27017
+        volumeMounts:
+          - name: mongo-data
+            mountPath: /data/db
+      restartPolicy: Always
+      volumes:
+        - name: mongo-data
+          persistentVolumeClaim:
+              claimName: mongo-data
