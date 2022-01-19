@@ -40,4 +40,16 @@ spec:
         ports:
         - containerPort: 4000
           protocol: TCP
+        affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 100
+            podAffinityTerm:
+              labelSelector:
+                matchExpressions:
+                - key: tier
+                  operator: In
+                  values:
+                  - backend
+              topologyKey: kubernetes.io/hostname   
       restartPolicy: Always
