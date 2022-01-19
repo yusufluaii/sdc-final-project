@@ -9,16 +9,16 @@ pipeline {
             }
         }
 
-        // stage('static code analysis') {
-        //     agent {
-        //         docker { image 'sonarsource/sonar-scanner-cli' }
-        //     }
-        //     steps {
-        //         script {    
-        //          sh "sonar-scanner -Dsonar.host.url=http://13.212.184.179:9000/ -Dsonar.login=df0ed68381ea738cc506195d2cb5f9c677410516   -Dsonar.projectKey=todo-app"
-        //             }
-        //     }
-        // }
+        stage('static code analysis') {
+            agent {
+                docker { image 'sonarsource/sonar-scanner-cli' }
+            }
+            steps {
+                script {    
+                 sh "sonar-scanner -Dsonar.host.url=http://18.138.81.183:9000/ -Dsonar.login=40541cfa9e0b304ca9eed3e8e27a483fee8dc547   -Dsonar.projectKey=todo-app"
+                    }
+            }
+        }
         
         stage('Build Image'){
             steps{
@@ -41,11 +41,11 @@ pipeline {
             }
         }
         
-        // stage("Clean Local Image"){
-        //     steps{
-        //         sh("docker image prune -a --force")
-        //     }
-        // }
+        stage("Clean Local Image"){
+            steps{
+                sh("docker image prune -a --force")
+            }
+        }
         
         stage("Change Image Tag"){
             steps{
@@ -79,6 +79,7 @@ pipeline {
                 
             }
         }
+        
 
     }
 }
