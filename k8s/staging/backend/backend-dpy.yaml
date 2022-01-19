@@ -40,7 +40,7 @@ spec:
         ports:
         - containerPort: 4000
           protocol: TCP
-        affinity:
+      affinity:
         podAntiAffinity:
           preferredDuringSchedulingIgnoredDuringExecution:
           - weight: 100
