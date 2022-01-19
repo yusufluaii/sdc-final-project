@@ -11,7 +11,7 @@ spec:
     matchLabels:
       app: todo-app
       tier: database
-  replicas: 1
+  replicas: 3
   strategy:
     rollingUpdate:
       maxSurge: 25%
@@ -31,7 +31,26 @@ spec:
         volumeMounts:
           - name: mongo-data
             mountPath: /data/db
+        resources:
+          requests:
+            cpu: 300m
+            memory: 200Mi
+          limits:
+            cpu: 600m
+            memory: 500Mi
       restartPolicy: Always
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 100
+            podAffinityTerm:
+              labelSelector:
+                matchExpressions:
+                - key: tier
+                  operator: In
+                  values:
+                  - database
+              topologyKey: kubernetes.io/hostname 
       volumes:
         - name: mongo-data
           persistentVolumeClaim:

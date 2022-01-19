@@ -25,7 +25,7 @@ spec:
     spec:
       containers:
       - name:  todo-app
-        image:  yusufluai/todo-app_server:latest
+        image:  yusufluai/todo-app_server:IMAGE_TAG
         imagePullPolicy: Always
         resources:
           requests:
