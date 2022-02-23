@@ -19,6 +19,7 @@ pipeline {
                     }
             }
         }
+
         
         stage('Build Image'){
             steps{
@@ -74,9 +75,7 @@ pipeline {
                 always{
                     emailext body: 'Please accept input if the staging environment runs smoothly.', recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']], subject: 'deploy to  production?'
                     input(message: 'Proceed or abort?', ok: 'Deploy to production')
-                    
                 }
-                
             }
         }
         
